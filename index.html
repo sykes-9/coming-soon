@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+        <title>Coming Soon</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    
+    </head>
+    <body>
+        <div class="opening-soon-info">
+            <div class="wrapper">
+
+                <div class="coming-back">
+                    <h1>Coming Soon</h1>
+                    <p class="t-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam, dicta! Sed dignissimos, nemo quidem quibusdam blanditiis culpa nam dolores sequi quod neque mollitia veniam molestiae! Aperiam omnis sit magni labore?</p>
+
+                    <div class="countdown">
+
+                        <div class="countdown-days">
+                            <div class="number"></div>
+                            <span class>days</span>
+                        </div>
+
+                        <div class="countdown-hours">
+                            <div class="number"></div>
+                            <span class>hours</span>
+                        </div>
+
+                        <div class="countdown-minutes">
+                            <div class="number"></div>
+                            <span class>minutes</span>
+                        </div>
+
+                        <div class="countdown-seconds">
+                            <div class="number" ></div>
+                            <span class>seconds</span>
+                        </div>
+                    </div>
+
+                    <form action="#" method="post">
+
+                        <input type="text" name="Email" required="" placeholder="Subscribe to get Notified">
+                        <button><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+
+            (() => {
+                const deadlineDate = new Date('may 20, 2021 10:59:59').getTime();
+                const countdownDays = document.querySelector('.countdown-days .number');
+                const countdownHours = document.querySelector('.countdown-hours .number');
+                const countdownMinutes = document.querySelector('.countdown-minutes .number');
+                const countdownSeconds = document.querySelector('.countdown-seconds .number');
+
+                setInterval ( () => {
+                    const currentDate = new Date().getTime();
+                    const distance = deadlineDate - currentDate;
+
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance %  (1000 * 60)) / 1000);
+
+                    countdownDays.innerHTML = days;
+                    countdownHours.innerHTML = hours;
+                    countdownMinutes.innerHTML = minutes;
+                    countdownSeconds.innerHTML = seconds;
+                }, 1000);
+            })();
+
+        </script>
+    </body>
+</html> 
